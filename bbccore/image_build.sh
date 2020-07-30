@@ -1,0 +1,1 @@
+docker build --tag bbccore:$1
