@@ -1,1 +1,1 @@
-docker build --tag bbccore:$1
+docker build --tag bbccore:$1 .
