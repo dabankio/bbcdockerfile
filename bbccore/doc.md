@@ -10,3 +10,5 @@
     Privk:"1122513e6d8ad7529d46f52d673c297cb2c8729919420f6435fb36bfd4aac494", 
     Pubk:"4c71f61cb70740151c15ea26f6c714817840dcadabf96844b6faabd19ea86665"
 }
+
+POW 矿工地址： `20g003rgxdn4s64r4d0dchvb87p791q4epswkn1txadgv1evjqqwv70e5`
