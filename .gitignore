@@ -15,3 +15,5 @@
 # vendor/
 
 bbccore/build/bigbang
+
+local_*.sh

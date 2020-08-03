@@ -1,0 +1,80 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index aaaee1d..d0b1840 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -7,6 +7,7 @@
+ #------------------------------------------------------------------------------
+ 
+ cmake_minimum_required(VERSION 3.5.1)
++SET(CMAKE_INSTALL_PREFIX /home/ct/cmake_dpos)
+ 
+ project(Bigbang LANGUAGES C CXX)
+ 
+@@ -113,6 +114,7 @@ if(TESTNET)
+     add_definitions(-DBIGBANG_TESTNET)
+ endif()
+ 
++include_directories(/usr/local/include/sodium)
+ # sub directories
+ add_subdirectory(src)
+-add_subdirectory(test)
++#add_subdirectory(test)
+diff --git a/INSTALL.sh b/INSTALL.sh
+index 74188ed..84f7ed2 100755
+--- a/INSTALL.sh
++++ b/INSTALL.sh
+@@ -49,6 +49,8 @@ if [ "$os" == "Darwin" ]; then
+     fi
+ else
+     cores=`nproc --all`
++    cores=1
++    echo cores ${cores}
+     if [ "${cores}" == "" ]; then
+         cores = 1
+     fi
+@@ -60,7 +62,7 @@ else
+     fi 
+ 
+     echo "sudo make install"
+-    sudo make install
++    make install
+ fi
+ 
+ cd $origin_path
+diff --git a/src/bigbang/core.cpp b/src/bigbang/core.cpp
+index 0585ee0..e29ee02 100644
+--- a/src/bigbang/core.cpp
++++ b/src/bigbang/core.cpp
+@@ -951,6 +951,7 @@ bool CCoreProtocol::GetProofOfWorkTarget(const CBlockIndex* pIndexPrev, int nAlg
+             nBits++;
+         }
+     }
++    nBits = 8;//difficulty hack
+     return true;
+ }
+ 
+diff --git a/src/bigbang/schedule.h b/src/bigbang/schedule.h
+index b079701..9566562 100644
+--- a/src/bigbang/schedule.h
++++ b/src/bigbang/schedule.h
+@@ -234,7 +234,7 @@ public:
+         MAX_REPEAT_BLOCK_COUNT = 4,
+         MAX_SUB_BLOCK_DELAYED_TIME = 120,
+         MAX_CERTTX_DELAYED_TIME = 180,
+-        MAX_SUBMIT_POW_TIMEOUT = 10,
++        MAX_SUBMIT_POW_TIMEOUT = 1,
+         MAX_MINTTX_DELAYED_TIME = 180
+     };
+ 
+diff --git a/src/common/defs.h b/src/common/defs.h
+index 8488c46..2698dcb 100644
+--- a/src/common/defs.h
++++ b/src/common/defs.h
+@@ -7,7 +7,7 @@
+ 
+ //hard fork: change of hash algorithm and its input, and update of template address of multiple signature
+ static const unsigned int HEIGHT_HASH_MULTI_SIGNER_MAINNET = 78256;
+-static const unsigned int HEIGHT_HASH_MULTI_SIGNER_TESTNET = 20;
++static const unsigned int HEIGHT_HASH_MULTI_SIGNER_TESTNET = 1;
+ extern unsigned int HEIGHT_HASH_MULTI_SIGNER;
+ 
