@@ -8,10 +8,10 @@ ENV HOME=/home/big
 VOLUME ["${HOME}"]
 COPY entrypoint.sh /sbin/
 RUN chmod 755 /sbin/entrypoint.sh
-COPY build/bigbang /usr/bin/
-RUN ln -s /usr/bin/bigbang /usr/bin/bigbang-cli
 COPY bigbang.conf boot.sh /
 RUN chmod +x /boot.sh
+COPY build/bigbang /usr/bin/
+RUN ln -s /usr/bin/bigbang /usr/bin/bigbang-cli
 EXPOSE 9960 9550
 ENTRYPOINT ["/sbin/entrypoint.sh"]
 CMD ["/boot.sh"]
