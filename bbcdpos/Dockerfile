@@ -13,7 +13,8 @@ RUN  sed -i s@/archive.ubuntu.com/@/mirrors.163.com/@g /etc/apt/sources.list && 
 VOLUME ["${HOME}"]
 COPY entrypoint.sh /sbin/
 COPY build/bigbang build/bigluashell /usr/bin/
-COPY bigbang.conf run.sh build/.bigluashell /
+COPY build/.bigluashell /.bigluashell
+COPY run.sh /run.sh
 RUN chmod 755 /sbin/entrypoint.sh \
   && ln -s /usr/bin/bigbang /usr/bin/bigbang-cli \
   && chmod +x /run.sh

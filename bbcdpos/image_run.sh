@@ -1,1 +1,1 @@
-docker run --rm -d -p 9902:9902 -p 10902:10902 -p 11902:11902  $1
+docker run --rm -d -p 9902:9902 -p 10902:10902 -p 11902:11902  dabankio/bbcdpos:$1
