@@ -17,3 +17,6 @@
 bbccore/build/bigbang
 
 local_*.sh
+
+# bin ignore
+mkf/build/mkf
