@@ -1,0 +1,33 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 92f0f51..1ce5625 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -7,6 +7,7 @@
+ #------------------------------------------------------------------------------
+ 
+ cmake_minimum_required(VERSION 3.5.1)
++SET(CMAKE_INSTALL_PREFIX /home/ct/mkf_cmake_install)
+ 
+ project(Bigbang LANGUAGES C CXX)
+ 
+diff --git a/INSTALL.sh b/INSTALL.sh
+index 74188ed..b1622c7 100755
+--- a/INSTALL.sh
++++ b/INSTALL.sh
+@@ -52,6 +52,7 @@ else
+     if [ "${cores}" == "" ]; then
+         cores = 1
+     fi
++    cores=2
+     echo "make -j${cores}"
+     make -j${cores}
+ 
+@@ -60,7 +61,7 @@ else
+     fi 
+ 
+     echo "sudo make install"
+-    sudo make install
++    make install
+ fi
+ 
+ cd $origin_path

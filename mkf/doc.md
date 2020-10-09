@@ -1,3 +1,9 @@
+## build
+cp ~/mkf_cmake_install/bin/mkf ./build/
+
+./image_build.sh mkfdev 1.1
+./image_build.sh mkf-dex-test 1.1
+
 ## 使用下述私钥作为 cryptonightkey cryptonightaddress
 {
     Addr:"1cnaa5cbevj46n3hvavvj7rab669nrcqs7d6w9prw9zjebwq5rcxzt9hc", 
