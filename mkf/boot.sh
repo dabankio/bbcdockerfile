@@ -1,4 +1,4 @@
-mkf -daemon
+mkf -daemon -datadir=/home/big/.mkf
 
 sleep 2
 
