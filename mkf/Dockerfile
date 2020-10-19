@@ -7,12 +7,12 @@ ENV HOME=/home/big
 
 VOLUME ["${HOME}"]
 COPY entrypoint.sh /sbin/
-COPY bigbang.conf boot.sh /
+COPY mkf.conf boot.sh /
 COPY build/mkf /usr/bin/
 RUN chmod 755 /sbin/entrypoint.sh \
     && chmod +x /boot.sh \
-    && mkdir ${HOME}/.bigbang \
-    && cp /bigbang.conf ${HOME}/.bigbang \
+    && mkdir ${HOME}/.mkf \
+    && cp /mkf.conf ${HOME}/.mkf \
     && ln -s /usr/bin/mkf /usr/bin/mkf-cli \
     && echo mkf-cli -rpcport=9550 -rpcuser=mkf -rpcpassword=123 > /usr/bin/cli \
     && chmod +x /usr/bin/cli
