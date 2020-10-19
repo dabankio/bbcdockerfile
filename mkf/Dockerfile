@@ -3,7 +3,7 @@
 FROM ubuntu:18.04
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV HOME=/home/big
+ENV HOME=/root
 
 VOLUME ["${HOME}"]
 COPY entrypoint.sh /sbin/
